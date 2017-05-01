@@ -1,0 +1,282 @@
+/*==========================================
+ globals
+ ==========================================*/
+ 
+body { font-size:13px; }
+
+h2 { font-size:19px; }
+h3 { font-size:18px; }
+h5 { font-size:15px; }
+
+/*==========================================
+ layout
+ ==========================================*/
+ 
+#header, #content, #upper-footer, #lower-footer
+{ 
+	margin: 0 auto;
+	padding: 0;
+	width: 300px;
+}
+
+/* 2 column layout */
+#tf-left-column
+{
+	width: 300px;
+	height: auto;
+	margin-right: 0;
+	float: none;
+	margin-bottom: 30px;
+}
+
+#tf-right-column
+{
+	width: 300px;
+	height: auto;
+	float: none;
+	padding-top: 30px;
+	border-top-width: 1px;
+}
+
+/*==========================================
+ header
+ ==========================================*/
+ 
+#header-shell { border-top-width:10px; }
+
+#header
+{
+	margin: 32px auto 30px auto;
+	padding: 0 0 30px 0;
+	border-bottom-width: 1px;
+}
+
+#header a#logo { width:160px; margin-bottom:27px; }
+
+/*==========================================
+ navigations
+ ==========================================*/
+ 
+/* see themefit.mobilemenu.css */ 
+#main-nav { width: 300px; }
+ 
+/*==========================================
+ content
+ ==========================================*/
+ 
+#content { padding-bottom:30px; }
+
+#tf-top-border { display:none; }
+
+/*==========================================
+ page title
+==========================================*/
+
+#tf-page-title { padding:0 0 25px 0; border:none; }
+
+#tf-page-title h1 { font-size:31px; }
+
+/*==========================================
+ featured project
+ ==========================================*/
+ 
+.featured-info
+{ 
+	padding-top: 5px;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+
+.featured-info .featured-desc { max-width: 100%; padding-bottom:15px; }
+
+.featured-info .featured-desc span.accent-block { display:none; }
+
+.featured-info .featured-desc span.lead { font-weight:400; font-style:italic; }
+
+.featured-info .featured-title-credits
+{ 
+	float: left;
+	text-align: left;
+	width: 100%;
+	max-width: 100%;
+	padding-bottom: 10px;
+}
+
+.featured-info .featured-title-credits h1
+{
+	font-size: 19px;
+	display:inline-block;
+	padding-right:6px;
+} 
+
+.featured-info .featured-title-credits h4
+{
+	font-size: 15px;
+	display: inline-block;
+	line-height: 19px;
+}
+
+html.ie7 .featured-info .featured-title-credits h1,
+html.ie7 .featured-info .featured-title-credits h4 
+{ 
+	display: inline;
+	zoom: 1;
+}
+
+/*==========================================
+ portfolio projects (shortcode)
+==========================================*/
+
+#tf-portfolio-project { border-top:none; padding-top:0; }
+
+#tf-portfolio-project #tf-headings { min-height:24px; font-size:13px; }
+
+#tf-portfolio-project #tf-headings #tf-headings-left-col
+{
+	width: 210px;
+	margin-right: 0;
+	padding-bottom: 10px;
+}
+
+#tf-portfolio-project #tf-headings #tf-headings-right-col
+{
+	padding: 12px 0 14px 0;
+	position: relative;
+	border-top-width: 1px;
+}
+
+#tf-portfolio-project #tf-headings #tf-headings-right-col h2 { font-size:19px; width:300px; }
+
+#tf-portfolio-project #tf-headings #tf-headings-right-col #tf-prev-next-menu
+{
+	width: 90px;
+	position: absolute;
+	top:-25px;
+	right: 0;
+}
+
+#tf-portfolio-project #tf-project-left-col
+{
+	width: 300px;
+	margin-right: 0;
+	float: right;
+}
+
+#tf-portfolio-project #tf-headings #tf-headings-right-col,
+#tf-portfolio-project #tf-project-right-col
+{
+	width: 300px;
+}
+
+#tf-portfolio-project #tf-project-left-col { padding-bottom:11px; }
+
+#tf-portfolio-project #tf-project-left-col br { display:none; }
+
+/*==========================================
+  sidebar (widgets)
+ ==========================================*/
+ 
+ul.sidebar li.sidebar-widget-item h5 { font-size:18px; padding-bottom: 20px;}
+
+/* sidebar shortcode button */
+ul.sidebar a.tf-button
+{
+	padding: 7px 10px;
+	margin-top: 20px;
+}
+
+ul.sidebar a.tf-button span { font-size:13px; }
+
+/*==========================================
+  posts
+ ==========================================*/
+ 
+div.post, div.page { margin-top:25px; padding-top:25px; }
+
+input[type="textarea"] { max-width:280px }
+
+div#respond #commentform input[type="text"] { width:170px; }
+div#respond #commentform #comment { max-width:280px }
+
+ol#comment-list li.comment-list-item .comment .avatar 
+{
+	width: 50px;
+	margin-right: 10px;
+}
+
+ol#comment-list li.comment-list-item div.comment div.comment-body { width:240px; }
+
+ol#comment-list li.comment-list-item ul.children li { padding-left:20px; }
+ 
+ol#comment-list li.comment-list-item ul.children li div.comment div.comment-body { width:220px; }
+
+/*==========================================
+ show / hide (toggle)
+==========================================*/
+
+.showhide div.persistent-content
+{
+	width: 240px;
+	min-height: 60px;
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: top;
+}
+
+.showhide a.toggle-button
+{
+	display: inline-block;
+	width: 50px;
+	height: 60px;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+	background-image: url('../images/menuarrow.png');
+	background-repeat: no-repeat;
+	background-position: 17px 25px;
+}
+
+html.ie7 .showhide div.persistent-content { margin-right:10px; }
+
+html.ie7 .showhide div.persistent-content,
+html.ie7 .showhide a.toggle-button
+{
+	display: inline;
+	zoom: 1;
+}
+
+.showhide a.toggle-button:hover { }
+
+.showhide a.toggle-button.open { background-position:17px -25px; }
+
+.showhide div.toggle-content { /*height:0;*/ width:300px; overflow:hidden; position:relative; }
+
+/*==========================================
+  widgets (footer)
+ ==========================================*/
+
+#upper-footer ul#footer-widgets
+{
+	letter-spacing: -4px;
+	word-spacing: -4px;
+	width: 100%;
+	margin: 0;
+}
+
+#upper-footer ul#footer-widgets li.footer-widget-item
+{
+	width: 100%;
+	float: none;
+	margin: 30px 0 0 0;
+	padding: 30px 0 0 0;
+	border-top-width: 1px;
+}
+
+#upper-footer ul#footer-widgets li.footer-widget-item.tf-first-child
+{
+	padding: 0;
+	border: none;
+}
+
+/* force left alignment on text for user readabiliity */
+#upper-footer ul#footer-widgets li.footer-widget-item .textwidget p { text-align: left; }
