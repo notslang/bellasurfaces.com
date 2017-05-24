@@ -1,0 +1,50 @@
+x-slidebox
+  display block
+  overflow hidden
+  width 100%
+
+x-slides
+  display block
+  position relative
+  height 100%
+  width 100%
+  overflow hidden
+  transition transform .5s ease
+
+  > x-slide
+    display inline-block
+    height 100%
+    width 100%
+    box-sizing border-box
+    vertical-align top
+    overflow hidden
+
+x-slidebox
+  color: black
+  position: relative
+  width: 100%
+
+  x-slide
+    padding-bottom: 50px // for the controller
+
+controller
+  padding: 10px 0
+  position: absolute
+  bottom: 0
+  display: block
+  text-align: center
+  width: 100%
+
+  input[type="radio"]
+    display: none
+
+    + label
+      display: inline-block
+      margin: 5px
+      size: 10px
+      background-color: black
+      cursor: pointer
+
+    &:checked + label
+      background-color: transparent
+      border-bottom: 2px solid black
