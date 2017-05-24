@@ -1,0 +1,28 @@
+include('./layout.marko')
+  @body
+    x-slidebox
+      x-slides
+        x-slide
+          img src="/wp-content/uploads/2012/05/Kitchen.jpg" alt="Cherry Cabinets with Granite Countertop" title="Cherry Cabinets with Granite Countertop"
+        x-slide
+          img src="/wp-content/uploads/2012/05/Hutch1.jpg" alt="Tile Hutch" title="Tile Hutch"
+        x-slide
+          img src="/wp-content/uploads/2012/05/Tile-Granite1.jpg" alt="Tile Hutch and Granite Island" title="Tile Hutch and Granite Island"
+        x-slide
+          img src="/wp-content/uploads/2012/05/Sink1.jpg" alt="Granite Stove" title="Granite Stove"
+        x-slide
+          img src="/wp-content/uploads/2012/05/Kitchen21.jpg" alt="Kitchen" title="Kitchen Countertop"
+
+    h1 -- Bella Surfaces
+    h4 -- Call Today! ${input.phoneNumber}
+    p -- Bella Surfaces has over 20 years of combined experience in installing custom surfaces in Kitchens, Bathrooms, Fireplaces, Playrooms and Commercial facilities throughout the New England area.
+
+    ul#portfolio-index
+      for(page in input.portfolioList)
+        li
+          a href="/portfolio/${page.name}"
+            img src="/portfolio/${page.name}/${page.images[0].replace('.jpg', '-thumb.jpg')}"
+
+    script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/x-tag/1.5.11/x-tag-core-with-shadowdom.min.js'
+    script type='text/javascript' src='/js/slidebox.js'
+    script type='text/javascript' src='/js/index.js'

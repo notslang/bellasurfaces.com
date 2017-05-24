@@ -1,0 +1,101 @@
+<!doctype html>
+html
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, maximum-scale=1.0"
+    meta name="author" content="Sean Lang"
+    meta name="description" content=input.description
+    link rel="shortcut icon" href="/wp-content/uploads/2012/05/favi.png"
+    link rel="apple-touch-icon" href="/wp-content/themes/fluid/images/touch-icon.png"
+
+    title -- ${input.title}
+
+    meta property="og:locale" content="en_US"
+    meta property="og:type" content="article"
+    meta property="og:title" content=input.title
+    meta property="og:description" content="Bella Surfaces has over 20 years of combined experience in installing custom surfaces in Kitchens, Bathrooms, Playrooms and Commercial facilities throughout the New England area. Installations include countertops, bathroom vanities, bars, fireplaces, reception areas, commercial surfaces, and many, many more. We strive to offer the best customer service in combination with our courteous professional installation"
+    meta property="og:site_name" content="Bella Surfaces"
+
+    link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Serif+Caption:400,400italic"
+    link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Istok+Web"
+    link rel="stylesheet" type="text/css" href="/css/index.css"
+
+  body
+    header
+      ul
+        li
+          a#logo href="/" title="Quality through Pride"
+            img src="/img/logo.svg" alt="Bella Surfaces"
+        li
+          a href="/" -- Home
+        li
+          a href="/about" -- About
+        li
+          a href="/services" -- Services
+        li
+          a href="/portfolio" -- Portfolio
+        li
+          a href="/contact" -- Contact Us
+
+    include(input.body)
+
+    footer
+      div.footer-column
+        h3 -- About Us
+        p -- Bella Surfaces has over 20 years of combined experience in installing custom surfaces in Kitchens, Bathrooms, Playrooms and Commercial facilities throughout the New England area. Installations include countertops, bathroom vanities, bars, fireplaces, reception areas, commercial surfaces, and many, many more. We strive to offer the best customer service in combination with our courteous professional installation teams.
+        a title="Bella Surfaces BBB Business Review" href="http://www.bbb.org/boston/business-reviews/countertops/bella-surfaces-in-north-billerica-ma-131724"
+          img alt="Bella Surfaces BBB Business Review" src="/img/bbb-accredited-seal.svg"
+
+      div.footer-column
+        h3 -- Vendors
+        ul#vendor-list
+          li
+            a href="http://www.avonitesurfaces.com/" title="Avonite Surfaces"
+              -- Avonite Surfaces
+          li
+            a href="http://www.caesarstoneus.com/" title="Caesar Stone Quartz Surfaces"
+              -- Caesar Stone Quartz Surfaces
+          li
+            a href="http://www.compac.us/" title="Compac Quartz"
+              -- Compac Quartz
+          li
+            a href="http://www2.dupont.com/Surfaces/en_US/index.html" title="Dupont Zodiaq"
+              -- Dupont Zodiaq
+          li
+            a href="http://www2.dupont.com/Corian_Global_Landing/en_US/index.html" title="DuPont™ Corian® "
+              -- DuPont™ Corian®
+          li
+            a href="http://www.formica.com/home/" title="Formica"
+              -- Formica
+          li
+            a href="http://www.lghausys.com/us/product/surfaces/sub_himacs.jsp" title="HI-MACS® Acrylic Solid Surface"
+              -- HI-MACS® Acrylic Solid Surface
+          li
+            a href="http://www.silestoneusa.com/"
+              -- Sile Stone
+          li
+            a href="http://www.staron.co.kr/staron/eng/index.do" title="Staron"
+              -- Staron
+          li
+            a href="http://www.technistone.eu/en/" title="Technistone"
+              -- Technistone
+
+    div#lower-footer
+      p#lower-left-text
+        a.social href="http://www.facebook.com/pages/Bella-SurfacesLLC/203037773334" title="Facebook"
+          img src="/img/facebook.svg"
+        //a.social href="http://twitter.com/" title="Twitter"
+        //  img src="/img/twitter.svg"
+        //a.social href="http://instagram.com/" title="Instagram"
+        //  img src="/img/instagram.svg"
+      p#lower-right-text -- Design by <a href="http://www.chazsouthard.com">ccs</a>
+
+    script type="text/javascript" --
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '${input.googleAnalyticsId}']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();

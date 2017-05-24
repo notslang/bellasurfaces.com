@@ -1,0 +1,8 @@
+include('./../layout.marko')
+  @body
+    ul#portfolio-index
+      for(page in input.portfolioList)
+        for(image in page.images)
+          li
+            a href="/portfolio/${page.name}"
+              img src="/portfolio/${page.name}/${image.replace('.jpg', '-thumb.jpg')}"
