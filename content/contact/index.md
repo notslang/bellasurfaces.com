@@ -8,4 +8,4 @@ United States
 
 - phone: 978. 667. 2400
 - fax: 978 667 2490
-- email: info@bellasurfaces.com
+- email: <info@bellasurfaces.com>
