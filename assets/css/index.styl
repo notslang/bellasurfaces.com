@@ -1,0 +1,305 @@
+@import '../../node_modules/nib'
+@import './slidebox'
+
+normalize-css()
+base()
+
+max-page-width = 900px
+divider-border = solid 1px #eee
+
+html
+  font-size: 100%
+
+button, input, select, textarea
+  font-family: sans-serif
+
+a:focus
+  outline: thin dotted
+
+p, pre
+  margin: 1em 0
+
+blockquote
+  margin: 1em 40px
+
+h1, h2, h3
+  text-transform: uppercase
+
+h1
+  font-size: 2em
+  margin: 0.67em 0
+
+h2
+  font-size: 1.5em
+  margin: 0.83em 0
+
+h3
+  font-size: 1.17em
+  margin: 1em 0
+
+h4
+  font-size: 1em
+  margin: 1.33em 0
+
+h5
+  font-size: 0.83em
+  margin: 1.67em 0
+
+h6
+  font-size: 0.67em
+  margin: 2.33em 0
+
+code, kbd, pre, samp
+  font-family: 'Bitstream Vera Sans Mono', Consolas, Courier, monospace, serif
+
+pre
+  white-space: pre-wrap
+
+q
+  quotes: "\201C" "\201D" "\2018" "\2019"
+
+dl, menu, ol, ul
+  margin: 1em 0
+  padding: 0 0 0 40px
+
+dl
+  padding: 0
+
+dd
+  margin: 0 0 0 40px
+
+nav ul, nav ol
+  list-style: none
+  list-style-image: none
+
+figure
+  margin: 0
+
+form
+  margin: 0
+
+legend
+  *margin-left: -7px
+
+button, input, select, textarea
+  font-size: 100%
+  margin: 0
+  vertical-align: baseline
+  *vertical-align: middle
+
+button, input
+  line-height: normal
+
+input[type="checkbox"], input[type="radio"]
+  *height: 13px
+  *width: 13px
+
+textarea
+  vertical-align: top
+
+html
+  margin: 0 10px
+
+body
+  background: #fff
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-style: normal
+  color: #707070
+  max-width: max-page-width
+  margin: auto
+
+img
+  max-width: 100%
+
+a
+  color: #2a3272
+
+  &:hover
+    color: #2a3272
+
+h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, a h1, a h2, a h3, a h4, a h5, a h6
+  font-family: "Istok Web", Helvetica, Arial, sans-serif
+  font-style: normal
+  color: #000
+  text-decoration: none
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, a:hover h1, a:hover h2, a:hover h3, a:hover h4, a:hover h5, a:hover h6
+  color: #2a3272
+  text-decoration: none
+
+blockquote
+  font-family: "Istok Web", Helvetica, Arial, sans-serif
+  color: #000
+
+body > p > img
+  display: block
+  margin: auto
+
+header
+  line-height: 80px
+  padding: 20px 0
+  border-bottom: divider-border
+
+  img, #logo
+    height: @line-height
+
+  a, ul, li
+    display: inline-block
+
+  a
+    text-decoration: none
+    color: #111
+    text-transform: uppercase
+
+  ul, a
+    vertical-align: top
+
+  ul, li
+    padding: 0 10px
+    margin: 0
+
+  ul
+    list-style-type: none
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+
+#portfolio-index
+  image-padding = 10px
+
+  list-style-type: none
+  font-size: 0
+  //display: flex
+  //flex-wrap: wrap
+  //justify-content: center
+  text-align: center
+  margin: 0 (-1 * image-padding)
+  padding: image-padding 0
+
+  &, li
+
+  li, a
+    display: inline-block
+
+  li
+    margin: 0
+    padding: image-padding
+
+    // 3 images wide at max-width, minus space for padding. there are 3 images,
+    // each image has padding on 2 sides, except the 2 images on the furthest
+    // left and right sides
+    images-in-row = 3
+    width: (max-page-width / images-in-row) - @padding * ((images-in-row * 2 - 2) / images-in-row)
+
+    // we explicitly set the height so the layout doesn't change as the page
+    // loads
+    height: @width
+
+// .primary-color-background
+//   background-color: #707070
+//
+// .primary-color-text
+//   color: #707070
+//
+//   a
+//     color: #707070
+
+.pagination span.current
+  background-color: #707070
+
+#header-shell
+  border-color: #707070
+
+.accent-color-background
+  background-color: #2a3272
+
+.accent-color-text
+  color: #2a3272
+
+a.accent-color-background.no-hover:hover
+  background-color: #2a3272
+
+a.accent-color-text.no-hover:hover
+  color: #2a3272
+
+submit, input[type="submit"]
+  background-color: #2a3272
+
+  &:hover
+    background-color: #2a3272
+
+//.border-styles
+//  border-color: #000
+//  border-style: dashed
+
+#main-nav #main-nav-container ul.menu li.menu-item a, #main-nav.tf-mobile-menu #main-nav-container ul.menu li.menu-item ul.sub-menu li a, #tf-sub-page-nav li a
+  color: #000
+
+#main-nav #main-nav-container ul.menu li.menu-item a:hover, #main-nav.tf-mobile-menu #main-nav-container ul.menu li.menu-item ul.sub-menu li a:hover, #tf-sub-page-nav li a:hover
+  color: #2a3272
+
+#main-nav #main-nav-container ul.menu li.current-menu-item a, #main-nav #main-nav-container ul.menu li.current-page-ancestor a, #main-nav #main-nav-container ul.menu li.current-menu-ancestor a, #main-nav.tf-mobile-menu #main-nav-container ul.menu li.menu-item ul.sub-menu li.current-menu-item a, #tf-sub-page-nav li.tf-current-menu-item a
+  color: #2a3272
+
+a:hover span.accent-color-background, a:hover a.accent-color-background, a.accent-color-background:hover
+  background-color: #2a3272
+
+a.primary-color-text:hover, a span.primary-color-text:hover
+  color: #2a3272
+
+div.tf-gallery-wrapper ul.tf-gallery-list li.tf-gallery-list-item a.tf-gallery-link:hover div.tf-gallery-controls a.tf-gallery-icon, div.tf-gallery-wrapper ul.tf-gallery-list li.tf-gallery-list-item:hover div.tf-gallery-controls a.tf-gallery-icon
+  background-color: #2a3272
+
+footer
+  position: relative
+  border-top: divider-border
+
+  .footer-column
+    padding: 0 10px
+    box-sizing: border-box
+    width: 50%
+    display: inline-block
+    vertical-align: top
+
+    &:first-child
+      padding-left: 0
+
+    &:last-child
+      padding-right: 0
+
+#vendor-list
+  padding: 0
+  list-style-type: none
+
+  li
+    border-top: divider-border
+    padding: 7px 0
+
+    &:first-child
+      padding-top: 0
+      border-top: none
+
+
+#lower-footer
+  height: 40px
+  line-height: 40px
+  border-top: divider-border
+  padding: 0 20px
+
+  a.social
+    margin: 0 3px
+
+    img
+      vertical-align: middle
+
+  p
+    display: block
+    max-width: 50%
+    font-size: 11px
+
+    &#lower-left-text
+      float: left
+
+    &#lower-right-text
+      float: right
+      text-align: right
