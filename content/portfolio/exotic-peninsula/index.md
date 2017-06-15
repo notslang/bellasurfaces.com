@@ -1,4 +1,4 @@
 ---
 title: Exotic Granite Peninsula
-category: kitchen
+category: kitchens
 ---

@@ -1,6 +1,6 @@
 ---
 title: Hutch-Kitchen
-category: kitchen
+category: kitchens
 ---
 
 Absolute Black Granite Hutch with Pencil Edge

@@ -1,4 +1,4 @@
 ---
 title: Carerra Countertops
-category: kitchen
+category: kitchens
 ---

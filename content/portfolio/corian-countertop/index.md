@@ -1,6 +1,6 @@
 ---
 title: Corian Countertops
-category: kitchen
+category: kitchens
 ---
 
 Corian kitchen countertops with cover backsplash

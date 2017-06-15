@@ -1,4 +1,4 @@
 ---
 title: Granite Peninsula
-category: kitchen
+category: kitchens
 ---

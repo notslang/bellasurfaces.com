@@ -1,6 +1,6 @@
 ---
 title: Soapstone Sink with Grid
-category: kitchen
+category: kitchens
 ---
 
 Custom soapstone sink with a drainage grid cut into the side for drying.

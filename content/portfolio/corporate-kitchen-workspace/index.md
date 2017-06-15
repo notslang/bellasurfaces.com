@@ -1,6 +1,6 @@
 ---
 title: Corporate Kitchen Workspace
-category: kitchen
+category: kitchens
 ---
 
 Granite Work space kitchen in corporate business

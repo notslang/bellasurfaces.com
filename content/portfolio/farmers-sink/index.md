@@ -1,4 +1,4 @@
 ---
 title: Farmers Sink
-category: kitchen
+category: kitchens
 ---

@@ -1,6 +1,6 @@
 ---
 title: Granite Kitchen
-category: kitchen
+category: kitchens
 ---
 
 A stunning kitchen with cherry cabinets and granite countertop with full bullnose edge

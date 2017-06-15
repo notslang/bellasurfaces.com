@@ -1,6 +1,6 @@
 ---
 title: Sink Corner
-category: kitchen
+category: kitchens
 ---
 
 Granite Corner Sink Layout

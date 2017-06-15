@@ -1,4 +1,4 @@
 ---
 title: Soapstone Island
-category: kitchen
+category: kitchens
 ---

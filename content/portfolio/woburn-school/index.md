@@ -1,6 +1,6 @@
 ---
 title: Woburn School Boys Vanity
-category: bathroom
+category: bathrooms
 ---
 
 A two bowl and three bowl sink.

@@ -1,6 +1,6 @@
 ---
 title: Exotic Granite Island
-category: kitchen
+category: kitchens
 ---
 
 Exotic granite kitchen island
