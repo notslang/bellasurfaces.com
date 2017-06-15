@@ -1,20 +1,28 @@
 include('./../layout.marko')
   @body
-    $ function unique(value, index, self) {
-        return self.indexOf(value) === index;
+    $ function count(acc, value) {
+        if (acc[value] == null) acc[value] = 0
+        acc[value] += 1
+        return acc
       }
-    $ var categories = input.portfolioList.map(
-        function (page) {return page.category}
-      ).filter(
-        unique
-      ).sort()
-    $ console.error(categories)
-    for(category in categories)
-      h2 -- ${category.replace('-', ' ')}
-      ul#portfolio-index
-        for(page in input.portfolioList)
-          if(page.category === category)
-            for(image in page.images)
-              li
-                a href="/portfolio/${page.name}"
-                  img src="/portfolio/${page.name}/${image.replace('.jpg', '-thumb.jpg')}"
+    $ function getCategory(page) {
+        return page.category
+      }
+    $ var categories = input.portfolioList.map(getCategory).reduce(count, {})
+    div#portfolio-index
+      for(category in Object.keys(categories).sort())
+        h2
+          -- ${category.replace('-', ' ') + ' '}
+          $ var piecesCount = categories[category]
+          span.count
+            if(piecesCount > 1)
+              -- (${piecesCount} pieces)
+            else
+              -- (${piecesCount} piece)
+        ul
+          for(page in input.portfolioList)
+            if(page.category === category)
+              for(image in page.images)
+                li
+                  a href="/portfolio/${page.name}"
+                    img src="/portfolio/${page.name}/${image.replace('.jpg', '-thumb.jpg')}"
