@@ -1,8 +1,20 @@
 include('./../layout.marko')
   @body
-    ul#portfolio-index
-      for(page in input.portfolioList)
-        for(image in page.images)
-          li
-            a href="/portfolio/${page.name}"
-              img src="/portfolio/${page.name}/${image.replace('.jpg', '-thumb.jpg')}"
+    $ function unique(value, index, self) {
+        return self.indexOf(value) === index;
+      }
+    $ var categories = input.portfolioList.map(
+        function (page) {return page.category}
+      ).filter(
+        unique
+      ).sort()
+    $ console.error(categories)
+    for(category in categories)
+      h2 -- ${category.replace('-', ' ')}
+      ul#portfolio-index
+        for(page in input.portfolioList)
+          if(page.category === category)
+            for(image in page.images)
+              li
+                a href="/portfolio/${page.name}"
+                  img src="/portfolio/${page.name}/${image.replace('.jpg', '-thumb.jpg')}"
