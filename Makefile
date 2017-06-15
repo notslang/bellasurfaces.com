@@ -1,13 +1,13 @@
 .PHONY: all deploy
 
-INPUT_IMGS = $(shell find content -type f -name '*.jpg' -not -path "*content/portfolio*")
+INPUT_IMGS = $(shell find content -type f -name '*.jpg' -not -path '*content/portfolio*')
 OUTPUT_IMGS = $(patsubst content/%, public/%, $(INPUT_IMGS))
 INPUT_PORTFOLIO_IMGS = $(shell find content/portfolio -type f -name '*.jpg')
 OUTPUT_PORTFOLIO_IMGS = $(patsubst content/%, public/%, $(INPUT_PORTFOLIO_IMGS))
 OUTPUT_PORTFOLIO_THUMBS = $(patsubst content/%.jpg, public/%-thumb.jpg, $(INPUT_PORTFOLIO_IMGS))
-INPUT_HTML_FILES = $(shell find content/ -type f -name '*.html')
-OUTPUT_HTML_FILES = $(patsubst content/%, public/%, $(INPUT_HTML_FILES))
-INPUT_MD_FILES = $(shell find content/ -type f -name '*.md')
+INPUT_PORTFOLIO_ENTRIES = $(shell find content/portfolio -type f -name 'index.md')
+OUTPUT_PORTFOLIO_ENTRIES = $(patsubst content/%.md, public/%.html, $(INPUT_PORTFOLIO_ENTRIES))
+INPUT_MD_FILES = $(shell find content -type f -name '*.md' -not -path '*content/portfolio*')
 OUTPUT_MD_FILES = $(patsubst content/%.md, public/%.html, $(INPUT_MD_FILES))
 
 public/%.html: content/%.html tmp/view/normal.marko.js
@@ -55,7 +55,7 @@ tmp/%.js: %.coffee
 	| cat - "$<" \
 	| ./node_modules/.bin/coffee -b -c -s > "$@"
 
-tmp/portfolio-list.json: tmp/portfolio-list.js $(OUTPUT_PORTFOLIO_IMGS)
+tmp/portfolio-list.json: tmp/portfolio-list.js $(OUTPUT_PORTFOLIO_IMGS) $(INPUT_PORTFOLIO_ENTRIES)
 	node tmp/portfolio-list.js > "$@"
 
 public/css/%.css: assets/css/%.styl
@@ -68,7 +68,7 @@ public/%.jpg: content/%.jpg
 	mkdir -p "$(dir $@)"
 	cp --reflink "$<" "$@"
 
-all: public/portfolio/index.html public/index.html $(OUTPUT_HTML_FILES) $(OUTPUT_MD_FILES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) public/css/index.css
+all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) public/css/index.css
 	cp --reflink -r assets/wp-* assets/img assets/js -t public
 
 deploy: all
