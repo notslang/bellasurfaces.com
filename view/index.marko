@@ -17,11 +17,12 @@ include('./layout.marko')
     h4 -- Call Today! ${input.phoneNumber}
     p -- Bella Surfaces has over 20 years of combined experience in installing custom surfaces in Kitchens, Bathrooms, Fireplaces, Playrooms and Commercial facilities throughout the New England area.
 
-    ul#portfolio-index
-      for(page in input.portfolioList)
-        li
-          a href="/portfolio/${page.name}"
-            img src="/portfolio/${page.name}/${page.images[0].replace('.jpg', '-thumb.jpg')}"
+    div#portfolio-index
+      ul
+        for(page in input.portfolioList)
+          li
+            a href="/portfolio/${page.name}"
+              img src="/portfolio/${page.name}/${page.images[0].replace('.jpg', '-thumb.jpg')}"
 
     script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/x-tag/1.5.11/x-tag-core-with-shadowdom.min.js'
     script type='text/javascript' src='/js/slidebox.js'
