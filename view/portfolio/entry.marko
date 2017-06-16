@@ -1,15 +1,13 @@
 include('./../layout.marko')
   @body
-    p
-      -- ${input.portfolioListIndex + 1} of ${input.portfolioList.length + ' '}
-      if(input.portfolioListIndex !== 0)
-        a href="/portfolio/${input.portfolioList[input.portfolioListIndex - 1].name}" -- Previous
-      if(input.portfolioListIndex !== 0 && input.portfolioListIndex !== input.portfolioList.length - 1)
-        -- ${' / '}
-      if(input.portfolioListIndex !== input.portfolioList.length - 1)
-        a href="/portfolio/${input.portfolioList[input.portfolioListIndex + 1].name}" -- Next
     h2 -- ${input.title}
     -- $!{input.contents}
     for(image in input.portfolioList[input.portfolioListIndex].images)
       p
         img src="/portfolio/${input.portfolioList[input.portfolioListIndex].name}/${image}"
+
+    p#portfolio-entry-navigation
+      if(input.portfolioListIndex !== 0)
+        a.previous href="/portfolio/${input.portfolioList[input.portfolioListIndex - 1].name}" -- Previous Project
+      if(input.portfolioListIndex !== input.portfolioList.length - 1)
+        a.next href="/portfolio/${input.portfolioList[input.portfolioListIndex + 1].name}" -- Next Project

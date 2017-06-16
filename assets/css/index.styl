@@ -200,14 +200,38 @@ header
       // loads
       height: @width
 
-// .primary-color-background
-//   background-color: #707070
-//
-// .primary-color-text
-//   color: #707070
-//
-//   a
-//     color: #707070
+#portfolio-entry-navigation
+  font-family: header-font
+  text-transform: uppercase
+  border-top: divider-border
+  padding: 20px 0
+  margin: 0
+  position: relative
+  font-size: 13px
+  letter-spacing: 0.5px
+
+  // when the previous button is missing, we need to explicitly set the height
+  height: 16px
+
+  a
+    text-decoration: none
+    color: #111
+
+  .previous:before
+    content: '\2190'
+    margin-right: 10px
+    font-size: 20px
+    line-height: 16px
+
+  .next:after
+    content: '\2192'
+    margin-left: 10px
+    font-size: 20px
+    line-height: 16px
+
+  .next
+    right: 0
+    position: absolute
 
 .pagination span.current
   background-color: #707070
