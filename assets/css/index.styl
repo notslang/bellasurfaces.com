@@ -260,11 +260,13 @@ footer
   border-top: divider-border
 
   .footer-column
-    padding: 0 10px
+    @media only screen and (min-width: 600px)
+      padding: 0 10px
+      width: 50%
+      display: inline-block
+      vertical-align: top
+
     box-sizing: border-box
-    width: 50%
-    display: inline-block
-    vertical-align: top
 
     &:first-child
       padding-left: 0
