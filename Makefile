@@ -66,10 +66,10 @@ public/css/index.css: assets/css/index.styl assets/css/slidebox.styl
 
 public/%.jpg: content/%.jpg
 	mkdir -p "$(dir $@)"
-	cp --reflink "$<" "$@"
+	cp --reflink=auto "$<" "$@"
 
 all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) public/css/index.css
-	cp --reflink -r assets/wp-* assets/img assets/js -t public
+	cp --reflink=auto -r assets/wp-* assets/img assets/js -t public
 
 deploy: all
 	rsync -r --delete --progress ./public/ core@slang.cx:/data/nginx/content/bellasurfaces.com
