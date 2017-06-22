@@ -72,5 +72,7 @@ all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) $(OUTPUT_P
 	cp --reflink=auto -r assets/wp-* assets/img assets/js -t public
 
 deploy: all
-	rsync -r --delete --progress ./public/ core@slang.cx:/data/nginx/content/bellasurfaces.com
+	# upload images before text files because they take the longest and are referenced by any new HTML pages
+	rsync -r --delete --progress --include="*.jpg" --include='*/' --exclude='*' ./public/ core@slang.cx:/data/nginx/content/bellasurfaces.com/
+	rsync -r --delete --progress --exclude="*.jpg" ./public/ core@slang.cx:/data/nginx/content/bellasurfaces.com
 	rsync --progress ./nginx/config/bellasurfaces.conf core@slang.cx:/data/nginx/config
