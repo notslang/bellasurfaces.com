@@ -90,6 +90,59 @@ html
         //  img src="/img/instagram.svg"
       p#lower-right-text -- Design by <a href="http://www.chazsouthard.com">ccs</a>
 
+    if(input.title == 'Contact Us')
+      script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjWajPwNOcp_rlgJIiEG8Xe8qj2IL18oM"
+      script type="text/javascript" --
+        var style = {
+          featureType: 'all',
+          elementType: 'all',
+          stylers: [
+            {
+              saturation: 0
+            },
+            {
+              gamma: 0.5
+            }
+          ]
+        }
+        var styledMap = new google.maps.StyledMapType([style], {name: 'Styled Map'})
+        var mapOptions = {
+          center: new google.maps.LatLng('42.592204', '-71.284101'),
+          zoom: 12,
+          mapTypeControl: true,
+          streetViewControl: true,
+          disableDefaultUI: true,
+          scrollwheel: false,
+          zoomControl: true,
+          mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+          },
+          navigationControl: true,
+          navigationControlOptions: {
+            style: google.maps.NavigationControlStyle.SMALL
+          },
+          mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+        var map = new google.maps.Map(document.getElementById('contact-map'), mapOptions)
+        var contentString = '<div class="infoWindow">71 Faulkner St\r\nNorth Billerica, MA 01862<form method="get" action="http://maps.google.com/maps"><input type="hidden" name="daddr" value="71 Faulkner St. North Billerica, MA 01862" /><input type="text" class="text" name="saddr" /><input type="submit" class="submit" value="Directions" /></form></div>'
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        })
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng('42.592204', '-71.284101'),
+          clickable: false,
+          map: map,
+          icon: {
+            url: '/img/map-pin.png',
+            size: new google.maps.Size(27, 37)
+          }
+        })
+        google.maps.event.addListener(marker, 'click', function () {
+          infowindow.open(map, marker)
+        })
+        map.mapTypes.set('map_style', styledMap)
+        map.setMapTypeId('map_style')
+
     script type="text/javascript" --
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', '${input.googleAnalyticsId}']);
