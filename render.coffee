@@ -19,16 +19,6 @@ description = 'Bella Surfaces has over 20 years of combined experience in
 installing custom surfaces in Kitchens, Bathrooms, Playrooms and Commercial
 facilities'
 
-pages =
-  '/':
-    title: 'Home'
-  '/about':
-    title: 'About Us'
-  '/contact':
-    title: 'Contact us'
-  '/portfolio':
-    title: 'Portfolio'
-
 argv = argparser.parseArgs()
 pagePath = argv.pageName.replace(
   /^content/, ''
@@ -70,12 +60,6 @@ preparePortfolioIndex = ->
     portfolioList: require './portfolio-list.json'
   }
 
-prepareHtml = (str) ->
-  {
-    contents: str
-    title: pages[pagePath].title + ' | Bella Surfaces'
-  }
-
 render = (obj) ->
   obj.googleAnalyticsId = 'UA-32157718-1'
   obj.phoneNumber = '978-667-2400'
@@ -95,9 +79,7 @@ process.stdin.on 'readable', ->
     render(
       if viewName in ['index', 'portfolio/index']
         preparePortfolioIndex()
-      else if /\.md/.test argv.pageName
-        prepareMarkdown(buffer)
       else
-        prepareHtml(buffer)
+        prepareMarkdown(buffer)
     )
   return
