@@ -2,6 +2,8 @@
 title: Services
 ---
 
+# Services
+
 Bella Surfaces manufactures all custom surfaces in our facilities using state of the art machinery including:
 
 - Countertops
