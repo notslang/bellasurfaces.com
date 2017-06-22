@@ -47,7 +47,7 @@ tmp/view/layout.marko.js: tmp/render.js
 
 public/%-thumb.jpg: content/%.jpg
 	mkdir -p "$(dir $@)"
-	MAGICK_OCL_DEVICE=OFF convert -define jpeg:size=400x400 "$<" -thumbnail 300x300^ -gravity center -extent 300x300 "$@"
+	MAGICK_OCL_DEVICE=OFF convert -define jpeg:size=400x400 "$<" -thumbnail 300x300^ -gravity center -extent 300x300 - | jpegtran -optimize -progressive > "$@"
 
 tmp/%.js: %.coffee
 	mkdir -p "$(dir $@)"
@@ -66,7 +66,7 @@ public/css/index.css: assets/css/index.styl assets/css/slidebox.styl
 
 public/%.jpg: content/%.jpg
 	mkdir -p "$(dir $@)"
-	cp --reflink=auto "$<" "$@"
+	jpegtran -optimize -progressive < "$<" > "$@"
 
 all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) public/css/index.css
 	cp --reflink=auto -r assets/wp-* assets/img assets/js -t public
