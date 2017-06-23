@@ -22,20 +22,25 @@ html
 
   body
     header
-      ul
-        li
-          a#logo href="/" title="Quality through Pride"
-            img src="/img/logo.svg" alt="Bella Surfaces"
-        li
-          a href="/" -- Home
-        li
-          a href="/about" -- About
-        li
-          a href="/services" -- Services
-        li
-          a href="/portfolio" -- Portfolio
-        li
-          a href="/contact" -- Contact Us
+      a#logo href="/" title="Quality through Pride"
+        img src="/img/logo.svg" alt="Bella Surfaces"
+      nav
+        ul
+          li
+            a href="/" -- Home
+          li
+            a href="/about" -- About
+          li
+            a href="/services" -- Services
+          li
+            a href="/portfolio" -- Portfolio
+          li
+            a href="/contact" -- Contact Us
+      span#nav-button
+        span
+        span
+        span
+        span
 
     include(input.body)
 
@@ -142,6 +147,12 @@ html
         })
         map.mapTypes.set('map_style', styledMap)
         map.setMapTypeId('map_style')
+
+    script type="text/javascript" --
+      bodyElement = document.querySelector('body')
+      document.getElementById('nav-button').addEventListener('click', function () {
+        bodyElement.classList.toggle('menu-active')
+      })
 
     script type="text/javascript" --
       var _gaq = _gaq || [];
