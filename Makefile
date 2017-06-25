@@ -49,7 +49,7 @@ public/%-thumb.jpg: content/%.jpg
 	mkdir -p "$(dir $@)"
 	MAGICK_OCL_DEVICE=OFF convert -define jpeg:size=400x400 "$<" -thumbnail 300x300^ -gravity center -extent 300x300 - | jpegtran -optimize -progressive > "$@"
 
-tmp/%.js: %.coffee
+tmp/%.js: %.coffee tmp/npm-install-done
 	mkdir -p "$(dir $@)"
 	echo "'use_strict'" \
 	| cat - "$<" \
@@ -68,7 +68,13 @@ public/%.jpg: content/%.jpg
 	mkdir -p "$(dir $@)"
 	jpegtran -optimize -progressive < "$<" > "$@"
 
-all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) public/css/index.css
+tmp/npm-install-done: package.json
+	if [ -d node_modules ]; then rm -R node_modules; fi
+	npm install --production
+	mkdir -p tmp
+	touch "$@"
+
+all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) public/css/index.css tmp/npm-install-done
 	cp --reflink=auto -r assets/wp-* assets/img assets/js -t public
 
 deploy: all
