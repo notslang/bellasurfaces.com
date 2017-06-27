@@ -1,4 +1,4 @@
-include('./../layout.marko', {title: input.title, pageList: input.pageList})
+include('./../layout.marko', input)
   @body
     h2 -- ${input.title}
     -- $!{input.contents}

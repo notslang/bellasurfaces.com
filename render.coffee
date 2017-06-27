@@ -31,7 +31,7 @@ argv = argparser.parseArgs()
 pagePath = argv.pageName.replace(
   /^content/, ''
 ).replace(
-  /(index)?\.html$/, ''
+  /index\.md$/, ''
 )
 if pagePath isnt '/' then pagePath = pagePath.replace(/\/$/, '')
 
@@ -41,6 +41,7 @@ console.error argv.viewName, pagePath
 prepareMarkdown = (str) ->
   extracted = fm(str)
   obj = extracted.attributes
+  obj.url = pagePath
   obj.pageList = require './page-list.json'
   if argv.viewName in ['index', 'portfolio/index', 'portfolio/entry']
     obj.portfolioList = require './portfolio-list.json'
