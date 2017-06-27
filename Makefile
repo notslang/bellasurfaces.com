@@ -70,7 +70,9 @@ tmp/npm-install-done: package.json
 	mkdir -p tmp
 	touch "$@"
 
-all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) public/css/index.css tmp/npm-install-done
+all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) \
+     $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) \
+     public/css/index.css
 	cp --reflink=auto -r assets/wp-* assets/img assets/js -t public
 
 deploy: all
