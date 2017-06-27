@@ -10,19 +10,27 @@ OUTPUT_PORTFOLIO_ENTRIES = $(patsubst content/%.md, public/%.html, $(INPUT_PORTF
 INPUT_MD_FILES = $(shell find content -type f -name '*.md' -not -path '*content/portfolio*')
 OUTPUT_MD_FILES = $(patsubst content/%.md, public/%.html, $(INPUT_MD_FILES))
 
-public/%.html: content/%.md tmp/view/normal.marko.js
+BASE_DEPS = tmp/render.js tmp/view/layout.marko.js
+
+# without these specified, `portfolio/entry` pages will get compiled with
+# `normal` sometimes
+.SECONDARY: tmp/view/portfolio/entry.marko.js tmp/view/normal.marko.js \
+            tmp/view/portfolio/index.marko.js tmp/view/index.marko.js \
+            tmp/view/layout.marko.js
+
+public/%.html: content/%.md tmp/view/normal.marko.js $(BASE_DEPS)
 	mkdir -p "$(dir $@)"
 	node tmp/render.js "$<" < "$<" > "$@"
 
-public/portfolio/%.html: content/portfolio/%.md tmp/view/portfolio/entry.marko.js tmp/portfolio-list.json
+public/portfolio/%.html: content/portfolio/%.md tmp/view/portfolio/entry.marko.js $(BASE_DEPS) tmp/portfolio-list.json
 	mkdir -p "$(dir $@)"
 	node tmp/render.js "$<" < "$<" > "$@"
 
-public/portfolio/index.html: tmp/view/portfolio/index.marko.js $(OUTPUT_PORTFOLIO_THUMBS) tmp/portfolio-list.json
+public/portfolio/index.html: tmp/view/portfolio/index.marko.js $(BASE_DEPS) $(OUTPUT_PORTFOLIO_THUMBS) tmp/portfolio-list.json
 	mkdir -p "$(dir $@)"
 	echo "foo" | node tmp/render.js content/portfolio/index.html > "$@"
 
-public/index.html: tmp/view/index.marko.js $(OUTPUT_PORTFOLIO_THUMBS) tmp/portfolio-list.json
+public/index.html: tmp/view/index.marko.js $(BASE_DEPS) $(OUTPUT_PORTFOLIO_THUMBS) tmp/portfolio-list.json
 	mkdir -p "$(dir $@)"
 	echo "foo" | node tmp/render.js content/index.html > "$@"
 
@@ -30,16 +38,6 @@ tmp/view/%.marko.js: view/%.marko tmp/npm-install-done
 	mkdir -p "$(dir $@)"
 	node_modules/.bin/markoc "$<"
 	mv "$<.js" "$@"
-
-tmp/view/portfolio/index.marko.js: tmp/view/layout.marko.js
-
-tmp/view/index.marko.js: tmp/view/layout.marko.js
-
-tmp/view/normal.marko.js: tmp/view/layout.marko.js
-
-tmp/view/portfolio/entry.marko.js: tmp/view/layout.marko.js
-
-tmp/view/layout.marko.js: tmp/render.js
 
 public/%-thumb.jpg: content/%.jpg
 	mkdir -p "$(dir $@)"
