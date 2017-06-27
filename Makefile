@@ -10,10 +10,6 @@ OUTPUT_PORTFOLIO_ENTRIES = $(patsubst content/%.md, public/%.html, $(INPUT_PORTF
 INPUT_MD_FILES = $(shell find content -type f -name '*.md' -not -path '*content/portfolio*')
 OUTPUT_MD_FILES = $(patsubst content/%.md, public/%.html, $(INPUT_MD_FILES))
 
-public/%.html: content/%.html tmp/view/normal.marko.js
-	mkdir -p "$(dir $@)"
-	node tmp/render.js "$<" < "$<" > "$@"
-
 public/%.html: content/%.md tmp/view/normal.marko.js
 	mkdir -p "$(dir $@)"
 	node tmp/render.js "$<" < "$<" > "$@"
