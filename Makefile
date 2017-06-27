@@ -18,11 +18,11 @@ BASE_DEPS = tmp/render.js tmp/view/layout.marko.js
             tmp/view/portfolio/index.marko.js tmp/view/index.marko.js \
             tmp/view/layout.marko.js
 
-public/%.html: content/%.md tmp/view/normal.marko.js $(BASE_DEPS)
+public/%/index.html: content/%/index.md tmp/view/normal.marko.js $(BASE_DEPS)
 	mkdir -p "$(dir $@)"
 	node tmp/render.js "$<" < "$<" > "$@"
 
-public/portfolio/%.html: content/portfolio/%.md tmp/view/portfolio/entry.marko.js $(BASE_DEPS) tmp/portfolio-list.json
+public/portfolio/%/index.html: content/portfolio/%/index.md tmp/view/portfolio/entry.marko.js $(BASE_DEPS) tmp/portfolio-list.json
 	mkdir -p "$(dir $@)"
 	node tmp/render.js "$<" < "$<" > "$@"
 
