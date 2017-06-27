@@ -10,7 +10,7 @@ OUTPUT_PORTFOLIO_ENTRIES = $(patsubst content/%.md, public/%.html, $(INPUT_PORTF
 INPUT_MD_FILES = $(shell find content -type f -name '*.md' -not -path '*content/portfolio*')
 OUTPUT_MD_FILES = $(patsubst content/%.md, public/%.html, $(INPUT_MD_FILES))
 
-BASE_DEPS = tmp/render.js tmp/view/layout.marko.js
+BASE_DEPS = tmp/render.js tmp/view/layout.marko.js tmp/page-list.json
 
 # without these specified, `portfolio/entry` pages will get compiled with
 # `normal` sometimes
@@ -51,6 +51,9 @@ tmp/%.js: %.coffee tmp/npm-install-done
 
 tmp/portfolio-list.json: tmp/portfolio-list.js $(INPUT_PORTFOLIO_IMGS) $(INPUT_PORTFOLIO_ENTRIES) tmp/npm-install-done
 	node tmp/portfolio-list.js > "$@"
+
+tmp/page-list.json: tmp/page-list.js $(INPUT_MD_FILES) tmp/npm-install-done
+	node tmp/page-list.js > "$@"
 
 public/css/%.css: assets/css/%.styl
 	mkdir -p "$(dir $@)"

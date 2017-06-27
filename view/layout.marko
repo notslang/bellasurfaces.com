@@ -26,16 +26,9 @@ html
         img src="/img/logo.svg" alt="Bella Surfaces"
       nav
         ul
-          li
-            a href="/" -- Home
-          li
-            a href="/about" -- About
-          li
-            a href="/services" -- Services
-          li
-            a href="/portfolio" -- Portfolio
-          li
-            a href="/contact" -- Contact Us
+          for(page in input.pageList)
+            li
+              a href=page.url -- ${page.title}
       span#nav-button
         span
         span

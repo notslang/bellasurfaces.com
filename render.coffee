@@ -41,6 +41,7 @@ console.error argv.viewName, pagePath
 prepareMarkdown = (str) ->
   extracted = fm(str)
   obj = extracted.attributes
+  obj.pageList = require './page-list.json'
   if argv.viewName in ['index', 'portfolio/index', 'portfolio/entry']
     obj.portfolioList = require './portfolio-list.json'
     obj.portfolioListIndex = findIndex(
@@ -54,6 +55,7 @@ prepareMarkdown = (str) ->
 preparePortfolioIndex = ->
   {
     portfolioList: require './portfolio-list.json'
+    pageList: require './page-list.json'
   }
 
 render = (obj) ->
