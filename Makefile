@@ -26,7 +26,7 @@ public/index.html: tmp/view/index.marko.js $(OUTPUT_PORTFOLIO_THUMBS) tmp/portfo
 	mkdir -p "$(dir $@)"
 	echo "foo" | node tmp/render.js content/index.html > "$@"
 
-tmp/%.marko.js: %.marko tmp/npm-install-done
+tmp/view/%.marko.js: view/%.marko tmp/npm-install-done
 	mkdir -p "$(dir $@)"
 	node_modules/.bin/markoc "$<"
 	mv "$<.js" "$@"
