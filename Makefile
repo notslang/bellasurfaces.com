@@ -51,7 +51,7 @@ tmp/%.js: %.coffee tmp/npm-install-done
 	| cat - "$<" \
 	| ./node_modules/.bin/coffee -b -c -s > "$@"
 
-tmp/portfolio-list.json: tmp/portfolio-list.js $(OUTPUT_PORTFOLIO_IMGS) $(INPUT_PORTFOLIO_ENTRIES) tmp/npm-install-done
+tmp/portfolio-list.json: tmp/portfolio-list.js $(INPUT_PORTFOLIO_IMGS) $(INPUT_PORTFOLIO_ENTRIES) tmp/npm-install-done
 	node tmp/portfolio-list.js > "$@"
 
 public/css/%.css: assets/css/%.styl
