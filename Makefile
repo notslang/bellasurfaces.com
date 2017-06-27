@@ -26,7 +26,7 @@ public/index.html: tmp/view/index.marko.js $(OUTPUT_PORTFOLIO_THUMBS) tmp/portfo
 	mkdir -p "$(dir $@)"
 	echo "foo" | node tmp/render.js content/index.html > "$@"
 
-tmp/%.marko.js: %.marko
+tmp/%.marko.js: %.marko tmp/npm-install-done
 	mkdir -p "$(dir $@)"
 	node_modules/.bin/markoc "$<"
 	mv "$<.js" "$@"
@@ -51,7 +51,7 @@ tmp/%.js: %.coffee tmp/npm-install-done
 	| cat - "$<" \
 	| ./node_modules/.bin/coffee -b -c -s > "$@"
 
-tmp/portfolio-list.json: tmp/portfolio-list.js $(OUTPUT_PORTFOLIO_IMGS) $(INPUT_PORTFOLIO_ENTRIES)
+tmp/portfolio-list.json: tmp/portfolio-list.js $(OUTPUT_PORTFOLIO_IMGS) $(INPUT_PORTFOLIO_ENTRIES) tmp/npm-install-done
 	node tmp/portfolio-list.js > "$@"
 
 public/css/%.css: assets/css/%.styl
