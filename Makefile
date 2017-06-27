@@ -20,19 +20,19 @@ BASE_DEPS = tmp/render.js tmp/view/layout.marko.js
 
 public/%/index.html: content/%/index.md tmp/view/normal.marko.js $(BASE_DEPS)
 	mkdir -p "$(dir $@)"
-	node tmp/render.js "$<" < "$<" > "$@"
+	node tmp/render.js "$<" normal < "$<" > "$@"
 
 public/portfolio/%/index.html: content/portfolio/%/index.md tmp/view/portfolio/entry.marko.js $(BASE_DEPS) tmp/portfolio-list.json
 	mkdir -p "$(dir $@)"
-	node tmp/render.js "$<" < "$<" > "$@"
+	node tmp/render.js "$<" portfolio/entry < "$<" > "$@"
 
 public/portfolio/index.html: tmp/view/portfolio/index.marko.js $(BASE_DEPS) $(OUTPUT_PORTFOLIO_THUMBS) tmp/portfolio-list.json
 	mkdir -p "$(dir $@)"
-	echo "foo" | node tmp/render.js content/portfolio/index.html > "$@"
+	echo "foo" | node tmp/render.js content/portfolio/index.html portfolio/index > "$@"
 
 public/index.html: tmp/view/index.marko.js $(BASE_DEPS) $(OUTPUT_PORTFOLIO_THUMBS) tmp/portfolio-list.json
 	mkdir -p "$(dir $@)"
-	echo "foo" | node tmp/render.js content/index.html > "$@"
+	echo "foo" | node tmp/render.js content/index.html index > "$@"
 
 tmp/view/%.marko.js: view/%.marko tmp/npm-install-done
 	mkdir -p "$(dir $@)"

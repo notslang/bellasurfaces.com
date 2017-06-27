@@ -14,6 +14,14 @@ argparser.addArgument(
   type: 'string'
   metavar: 'PAGE_NAME'
 )
+argparser.addArgument(
+  ['viewName']
+  nargs: '?'
+  defaultValue: ''
+  help: ''
+  type: 'string'
+  metavar: 'VIEW_NAME'
+)
 
 description = 'Bella Surfaces has over 20 years of combined experience in
 installing custom surfaces in Kitchens, Bathrooms, Playrooms and Commercial
@@ -27,25 +35,13 @@ pagePath = argv.pageName.replace(
 )
 if pagePath isnt '/' then pagePath = pagePath.replace(/\/$/, '')
 
-viewName = (
-  if pagePath is '/'
-    'index'
-  else if pagePath is '/portfolio'
-    'portfolio/index'
-  else
-    if /\/portfolio\/[^\/]+\//.test(pagePath)
-      'portfolio/entry'
-    else
-      'normal'
-)
-
-view = require "./view/#{viewName}.marko.js"
-console.error viewName, pagePath
+view = require "./view/#{argv.viewName}.marko.js"
+console.error argv.viewName, pagePath
 
 prepareMarkdown = (str) ->
   extracted = fm(str)
   obj = extracted.attributes
-  if viewName in ['index', 'portfolio/index', 'portfolio/entry']
+  if argv.viewName in ['index', 'portfolio/index', 'portfolio/entry']
     obj.portfolioList = require './portfolio-list.json'
     obj.portfolioListIndex = findIndex(
       obj.portfolioList
@@ -77,7 +73,7 @@ process.stdin.on 'readable', ->
     buffer += chunk
   if buffer isnt ''
     render(
-      if viewName in ['index', 'portfolio/index']
+      if argv.viewName in ['index', 'portfolio/index']
         preparePortfolioIndex()
       else
         prepareMarkdown(buffer)
