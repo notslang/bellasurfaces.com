@@ -71,19 +71,36 @@ tmp/npm-install-done: package.json
 	mkdir -p tmp
 	touch "$@"
 
-tmp/favicon-%.png: assets/img/logo-small.svg tmp/npm-install-done
-	node_modules/.bin/svgexport assets/img/logo-small.svg "$@" $*:$* pad; \
+public/favicons/favicon-%.png: assets/img/logo.svg \
+                               assets/img/logo-simplified.svg \
+                               assets/img/logo-small.svg tmp/npm-install-done
+	if [ "$*" -gt "120" ]; then \
+		node_modules/.bin/svgexport assets/img/logo.svg "$@" $*:$* pad; \
+	elif [ "$*" -gt "70" ]; then \
+		node_modules/.bin/svgexport assets/img/logo-simplified.svg "$@" $*:$* pad; \
+	else \
+		node_modules/.bin/svgexport assets/img/logo-small.svg "$@" $*:$* pad; \
+	fi
 	optipng "$@"
 
-public/favicon.ico: tmp/favicon-16.png tmp/favicon-32.png tmp/favicon-48.png
+public/favicon.ico: public/favicons/favicon-16.png \
+                    public/favicons/favicon-32.png \
+                    public/favicons/favicon-48.png
 	convert $^ "$@"
+
+# these are used for apple touch icons
+EXTRA_ICONS = public/favicons/favicon-228.png public/favicons/favicon-192.png \
+              public/favicons/favicon-180.png public/favicons/favicon-152.png \
+              public/favicons/favicon-144.png public/favicons/favicon-120.png \
+              public/favicons/favicon-114.png public/favicons/favicon-76.png \
+              public/favicons/favicon-72.png public/favicons/favicon-57.png
 
 public/google%.html:
 	echo "google-site-verification: google$*.html" > "$@"
 
 all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) \
      $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) \
-     public/css/index.css public/favicon.ico \
+     public/css/index.css public/favicon.ico $(EXTRA_ICONS) \
      public/googlea996c0920075fa0d.html
 	cp --reflink=auto -r assets/wp-* assets/img assets/js -t public
 
