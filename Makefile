@@ -53,7 +53,12 @@ tmp/portfolio-list.json: tmp/portfolio-list.js $(INPUT_PORTFOLIO_IMGS) $(INPUT_P
 	node tmp/portfolio-list.js > "$@"
 
 tmp/page-list.json: tmp/page-list.js $(INPUT_MD_FILES) tmp/npm-install-done
-	node tmp/page-list.js > "$@"
+	node tmp/page-list.js > "$@.compare"
+	if cmp -s "$@.compare" "$@"; then \
+		rm "$@.compare"; \
+	else \
+		mv "$@.compare" "$@"; \
+	fi
 
 public/css/%.css: assets/css/%.styl
 	mkdir -p "$(dir $@)"
