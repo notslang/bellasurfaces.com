@@ -11,7 +11,8 @@
     "marked": "^0.3.6",
     "marko": "^4.2.8",
     "nib": "^1.1.2",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "svgexport": "^0.3.2"
   },
   "devDependencies": {},
   "scripts": {

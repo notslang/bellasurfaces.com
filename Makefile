@@ -71,9 +71,16 @@ tmp/npm-install-done: package.json
 	mkdir -p tmp
 	touch "$@"
 
+tmp/favicon-%.png: assets/img/logo-small.svg tmp/npm-install-done
+	node_modules/.bin/svgexport assets/img/logo-small.svg "$@" $*:$* pad; \
+	optipng "$@"
+
+public/favicon.ico: tmp/favicon-16.png tmp/favicon-32.png tmp/favicon-48.png
+	convert $^ "$@"
+
 all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) \
      $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) \
-     public/css/index.css
+     public/css/index.css public/favicon.ico
 	cp --reflink=auto -r assets/wp-* assets/img assets/js -t public
 
 deploy: all
