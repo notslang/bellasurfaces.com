@@ -20,7 +20,8 @@ html
     link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Questrial:400,300"
     link rel="stylesheet" type="text/css" href="/css/index.css"
 
-  body
+  $ var bodyId = input.url.replace('/', '').replace(/\//g, '-');
+  body id="${bodyId}"
     header
       a#logo href="/" title="Quality through Pride"
         img src="/img/logo.svg" alt="Bella Surfaces"
@@ -91,7 +92,7 @@ html
         //  img src="/img/instagram.svg"
       p#lower-right-text -- Design by <a href="http://www.chazsouthard.com">ccs</a>
 
-    if(input.title == 'Contact Us')
+    if(input.url == '/contact')
       script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjWajPwNOcp_rlgJIiEG8Xe8qj2IL18oM"
       script type="text/javascript" --
         var style = {
@@ -143,6 +144,16 @@ html
         })
         map.mapTypes.set('map_style', styledMap)
         map.setMapTypeId('map_style')
+    else if(input.url == '/services')
+      script type="text/javascript" --
+        var serviceImages = document.querySelectorAll('body#services > p > img')
+        for (j = 0, len = serviceImages.length; j < len; j++) {
+          var element = serviceImages[j]
+          var parent = element.parentNode
+          var grandParent = parent.parentNode
+          grandParent.insertBefore(element, parent)
+          grandParent.removeChild(parent)
+        }
 
     script type="text/javascript" --
       bodyElement = document.querySelector('body')
