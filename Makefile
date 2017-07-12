@@ -90,7 +90,7 @@ all: public/portfolio/index.html public/index.html $(OUTPUT_MD_FILES) \
      $(OUTPUT_PORTFOLIO_ENTRIES) $(OUTPUT_PORTFOLIO_IMGS) $(OUTPUT_IMGS) \
      public/css/index.css public/favicon.ico \
      public/googlea996c0920075fa0d.html
-	cp --reflink=auto -r assets/wp-* assets/img assets/js -t public
+	cp -r assets/wp-* assets/img assets/js -t public
 
 deploy: all
 	# upload images before text files because they take the longest and are referenced by any new HTML pages
