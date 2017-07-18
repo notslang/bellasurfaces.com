@@ -1,14 +1,14 @@
 .PHONY: all deploy
 
-INPUT_IMGS = $(shell find content -type f -name '*.jpg' -not -path '*content/portfolio*')
-OUTPUT_IMGS = $(patsubst content/%, public/%, $(INPUT_IMGS))
-INPUT_PORTFOLIO_IMGS = $(shell find content/portfolio -type f -name '*.jpg')
-OUTPUT_PORTFOLIO_IMGS = $(patsubst content/%, public/%, $(INPUT_PORTFOLIO_IMGS))
-OUTPUT_PORTFOLIO_THUMBS = $(patsubst content/%.jpg, public/%-thumb.jpg, $(INPUT_PORTFOLIO_IMGS))
-INPUT_PORTFOLIO_ENTRIES = $(shell find content/portfolio -type f -name 'index.md')
-OUTPUT_PORTFOLIO_ENTRIES = $(patsubst content/%.md, public/%.html, $(INPUT_PORTFOLIO_ENTRIES))
-INPUT_MD_FILES = $(shell find content -type f -name '*.md' -not -path '*content/portfolio*')
-OUTPUT_MD_FILES = $(patsubst content/%.md, public/%.html, $(INPUT_MD_FILES))
+INPUT_IMGS := $(shell find content -type f -name '*.jpg' -not -path '*content/portfolio*')
+OUTPUT_IMGS := $(patsubst content/%, public/%, $(INPUT_IMGS))
+INPUT_PORTFOLIO_IMGS := $(shell find content/portfolio -type f -name '*.jpg')
+OUTPUT_PORTFOLIO_IMGS := $(patsubst content/%, public/%, $(INPUT_PORTFOLIO_IMGS))
+OUTPUT_PORTFOLIO_THUMBS := $(patsubst content/%.jpg, public/%-thumb.jpg, $(INPUT_PORTFOLIO_IMGS))
+INPUT_PORTFOLIO_ENTRIES := $(shell find content/portfolio -type f -name 'index.md')
+OUTPUT_PORTFOLIO_ENTRIES := $(patsubst content/%.md, public/%.html, $(INPUT_PORTFOLIO_ENTRIES))
+INPUT_MD_FILES := $(shell find content -type f -name '*.md' -not -path '*content/portfolio*')
+OUTPUT_MD_FILES := $(patsubst content/%.md, public/%.html, $(INPUT_MD_FILES))
 
 BASE_DEPS = tmp/render.js tmp/view/layout.marko.js tmp/page-list.json
 
