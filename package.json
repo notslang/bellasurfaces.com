@@ -14,10 +14,6 @@
     "stylus": "^0.54.5",
     "svgexport": "^0.3.2"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Sean Lang <slang800@gmail.com>",
   "license": "GPL-3.0"
 }
