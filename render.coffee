@@ -23,7 +23,7 @@ argparser.addArgument(
   metavar: 'VIEW_NAME'
 )
 
-description = 'Bella Surfaces has over 20 years of combined experience in
+description = 'Bella Surfaces, Inc. has over 20 years of combined experience in
 installing custom surfaces in Kitchens, Bathrooms, Playrooms and Commercial
 facilities'
 

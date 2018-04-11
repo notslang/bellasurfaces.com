@@ -4,7 +4,7 @@ title: About Us
 
 # About
 
-Bella Surfaces has over 20 years of combined experience in installing custom surfaces in Kitchens, Bathrooms, Playrooms and Commercial facilities throughout the New England area. Installations include countertops, bathroom vanities, bars, fireplaces, reception areas, commercial surfaces, and many, many more. We strive to offer the best customer service in combination with our courteous professional installation teams.
+Bella Surfaces, Inc. has over 20 years of combined experience in installing custom surfaces in Kitchens, Bathrooms, Playrooms and Commercial facilities throughout the New England area. Installations include countertops, bathroom vanities, bars, fireplaces, reception areas, commercial surfaces, and many, many more. We strive to offer the best customer service in combination with our courteous professional installation teams.
 
 ![](/about/truck.jpg)
 

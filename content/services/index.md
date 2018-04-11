@@ -8,7 +8,7 @@ title: Services
 
 ![Fabrication Facility](/services/auto-saw.jpg)
 
-Bella Surfaces manufactures all custom surfaces in our facilities using state of the art machinery including:
+Bella Surfaces, Inc. manufactures all custom surfaces in our facilities using state of the art machinery including:
 
 - Countertops
 - Tabletops
@@ -34,7 +34,7 @@ We will be able to provide you with a quote at the time of your visit. You can v
 
 At time of template creation, we will require a 50% deposit on the job. We also need the base cabinets to be 100% installed, and all of your appliances and sink must be on site. We need someone who can answer any questions we may have at the job site during the template. If you are not avaliable, an architect, contractor or kitchen dealer is fine. Installation timelines vary depending on your custom order. We will discuss installation schedule when we arrive to create the template.
 
-At time of installation, we will give you all of your care and maintenance information and answer any questions you may have. We will also require final balance payment at time of installation as well. Please know that at Bella Surfaces we are always available to our customers. Even after installation, we encourage our customers to call us with any questions they may have.
+At time of installation, we will give you all of your care and maintenance information and answer any questions you may have. We will also require final balance payment at time of installation as well. Please know that at Bella Surfaces, Inc. we are always available to our customers. Even after installation, we encourage our customers to call us with any questions they may have.
 
 ## Bring your Ideas
 
