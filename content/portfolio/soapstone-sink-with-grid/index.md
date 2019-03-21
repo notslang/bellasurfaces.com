@@ -1,5 +1,5 @@
 ---
-title: Soapstone Sink with Grid
+title: Soapstone Sink with Drainage Board
 category: kitchens
 ---
 
